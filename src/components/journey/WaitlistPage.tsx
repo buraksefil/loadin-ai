@@ -3,7 +3,7 @@ import { useState } from "react";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
-import { CheckCircle } from "lucide-react";
+import { CheckCircle, Instagram } from "lucide-react";
 import { supabase } from "@/lib/supabase";
 
 interface Props {
@@ -75,9 +75,16 @@ const WaitlistPage = ({ answers, onRestart }: Props) => {
               We'll reach out soon. The journey begins.
             </p>
             <Button
+              onClick={() => window.open("https://instagram.com/loadin.community", "_blank")}
+              className="mt-2 h-11 px-8 rounded-full bg-gradient-to-r from-purple-500 via-pink-500 to-orange-400 text-white border-0 hover:opacity-90 transition-all duration-300 flex items-center gap-2 mx-auto"
+            >
+              <Instagram className="w-4 h-4" />
+              Follow us on Instagram
+            </Button>
+            <Button
               onClick={onRestart}
               variant="outline"
-              className="mt-6 h-11 px-8 rounded-full border-border/50 text-muted-foreground hover:text-foreground hover:border-primary/50"
+              className="mt-2 h-11 px-8 rounded-full border-border/50 text-muted-foreground hover:text-foreground hover:border-primary/50"
             >
               Back to start
             </Button>
@@ -145,7 +152,20 @@ const WaitlistPage = ({ answers, onRestart }: Props) => {
               >
                 {loading ? "Saving..." : "Join the early access"}
               </Button>
-              <p className="text-center text-xs text-muted-foreground/60 mt-2">
+
+              <div className="flex items-center justify-center gap-2 pt-1">
+                <Button
+                  type="button"
+                  variant="ghost"
+                  onClick={() => window.open("https://instagram.com/loadin.community", "_blank")}
+                  className="h-9 px-4 rounded-full text-sm text-muted-foreground hover:text-foreground flex items-center gap-2"
+                >
+                  <Instagram className="w-4 h-4" />
+                  Follow on Instagram
+                </Button>
+              </div>
+
+              <p className="text-center text-xs text-muted-foreground/60">
                 Help us build this better
               </p>
             </motion.form>
