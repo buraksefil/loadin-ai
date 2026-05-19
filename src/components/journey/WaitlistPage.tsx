@@ -4,6 +4,7 @@ import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
 import { CheckCircle } from "lucide-react";
+import { supabase } from "@/lib/supabase";
 
 interface Props {
   answers: Record<string, string>;
@@ -19,10 +20,32 @@ const WaitlistPage = ({ answers, onRestart }: Props) => {
     blocker: answers.struggle || answers.blocker || "",
   });
   const [submitted, setSubmitted] = useState(false);
+  const [loading, setLoading] = useState(false);
+  const [error, setError] = useState("");
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
-    if (form.name && form.email) setSubmitted(true);
+    if (!form.name || !form.email) return;
+
+    setLoading(true);
+    setError("");
+
+    const { error } = await supabase.from("waitlist").insert([
+      {
+        name: form.name,
+        email: form.email,
+        goal: form.goal,
+        blocker: form.blocker,
+      },
+    ]);
+
+    setLoading(false);
+
+    if (error) {
+      setError("Something went wrong. Please try again.");
+    } else {
+      setSubmitted(true);
+    }
   };
 
   const update = (field: string, value: string) =>
@@ -110,11 +133,17 @@ const WaitlistPage = ({ answers, onRestart }: Props) => {
                 onChange={(e) => update("blocker", e.target.value)}
                 className={`min-h-[80px] ${fieldClass}`}
               />
+
+              {error && (
+                <p className="text-red-400 text-sm text-center">{error}</p>
+              )}
+
               <Button
                 type="submit"
+                disabled={loading}
                 className="w-full h-12 rounded-xl text-base bg-primary hover:bg-primary/90 transition-all duration-300"
               >
-                Join the early access
+                {loading ? "Saving..." : "Join the early access"}
               </Button>
               <p className="text-center text-xs text-muted-foreground/60 mt-2">
                 Help us build this better
