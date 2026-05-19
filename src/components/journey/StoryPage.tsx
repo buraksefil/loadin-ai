@@ -14,27 +14,18 @@ const lines1 = [
 ];
 
 const lines2 = [
-  { text: "A system that stays with you.", style: "text-lg md:text-xl text-muted-foreground", delay: 0 },
-  { text: "That reminds you.", style: "text-lg md:text-xl text-muted-foreground", delay: 1 },
-  { text: "That pushes you.", style: "text-lg md:text-xl text-muted-foreground", delay: 2 },
-  { text: "That doesn't let you quit.", style: "text-lg md:text-xl text-foreground font-semibold", delay: 3.2 },
-];
-
-const lines3 = [
   { text: "AI improves your power and discipline.", style: "text-2xl md:text-3xl text-gradient font-bold", delay: 0 },
-  { text: "Goals meet execution, when you meet the right people.", style: "text-2xl md:text-3xl text-gradient font-bold", delay: 1.5 },
+  { text: "Goals meet execution, when you meet the right people.", style: "text-2xl md:text-3xl text-gradient font-bold", delay: 2 },
   { text: "And you... finally follow through.", style: "text-xl md:text-2xl text-foreground font-medium", delay: 3 },
 ];
 
 const StoryPage = ({ onComplete }: Props) => {
-  const [phase, setPhase] = useState<1 | 2 | 3>(1);
+  const [phase, setPhase] = useState<1 | 2>(1);
 
   useEffect(() => {
-    const t1 = setTimeout(() => setPhase(2), 7000);
-    const t2 = setTimeout(() => setPhase(3), 14000);
+    const t1 = setTimeout(() => setPhase(2), 8000);
     return () => {
       clearTimeout(t1);
-      clearTimeout(t2);
     };
   }, []);
 
@@ -60,22 +51,9 @@ const StoryPage = ({ onComplete }: Props) => {
             </motion.p>
           ))}
 
-        {phase === 2 &&
-          lines2.map((line, i) => (
-            <motion.p
-              key={i}
-              initial={{ opacity: 0, y: 15 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ delay: line.delay, duration: 0.8, ease: "easeOut" }}
-              className={line.style}
-            >
-              {line.text}
-            </motion.p>
-          ))}
-
-        {phase === 3 && (
+        {phase === 2 && (
           <div className="space-y-6">
-            {lines3.map((line, i) => (
+            {lines2.map((line, i) => (
               <motion.p
                 key={i}
                 initial={{ opacity: 0, y: 15 }}
@@ -89,7 +67,7 @@ const StoryPage = ({ onComplete }: Props) => {
             <motion.div
               initial={{ opacity: 0, scale: 0.95, y: 10 }}
               animate={{ opacity: 1, scale: 1, y: 0 }}
-              transition={{ delay: 4.5, duration: 0.6, ease: "easeOut" }}
+              transition={{ delay: 5.5, duration: 0.6, ease: "easeOut" }}
               className="pt-4"
             >
               <Button
