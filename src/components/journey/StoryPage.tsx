@@ -67,7 +67,7 @@ const StoryPage = ({ onComplete }: Props) => {
             <motion.div
               initial={{ opacity: 0, scale: 0.95, y: 10 }}
               animate={{ opacity: 1, scale: 1, y: 0 }}
-              transition={{ delay: 5.5, duration: 0.6, ease: "easeOut" }}
+              transition={{ delay: 6.5, duration: 0.6, ease: "easeOut" }}
               className="pt-4"
             >
               <Button
