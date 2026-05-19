@@ -23,12 +23,11 @@ const lines2 = [
 ];
 
 const StoryPage = ({ onComplete }: Props) => {
-  const [phase, setPhase] = useState<1 | 2 | 3>(1);
+  const [phase, setPhase] = useState<1 | 2>(1);
 
   useEffect(() => {
     const t1 = setTimeout(() => setPhase(2), 10500);
-    const t2 = setTimeout(() => setPhase(3), 16000);
-    return () => { clearTimeout(t1); clearTimeout(t2); };
+    return () => { clearTimeout(t1); };
   }, []);
 
   return (
@@ -66,26 +65,26 @@ const StoryPage = ({ onComplete }: Props) => {
                 {line.text}
               </motion.p>
             ))}
-          </div>
-        )}
 
-        {phase === 3 && (
-          <motion.div
-            initial={{ opacity: 0, scale: 0.95 }}
-            animate={{ opacity: 1, scale: 1 }}
-            transition={{ duration: 0.6 }}
-          >
-            <Button
-              onClick={onComplete}
-              className="h-14 px-12 rounded-full text-lg bg-primary hover:bg-primary/90 transition-all duration-300"
+            <motion.div
+              initial={{ opacity: 0, scale: 0.95, y: 10 }}
+              animate={{ opacity: 1, scale: 1, y: 0 }}
+              transition={{ delay: 4.5, duration: 0.6, ease: "easeOut" }}
+              className="pt-4"
             >
-              I want this
-            </Button>
-          </motion.div>
+              <Button
+                onClick={onComplete}
+                className="h-14 px-12 rounded-full text-lg bg-primary hover:bg-primary/90 transition-all duration-300"
+              >
+                I want this
+              </Button>
+            </motion.div>
+          </div>
         )}
       </div>
     </motion.div>
   );
 };
+
 
 export default StoryPage;
