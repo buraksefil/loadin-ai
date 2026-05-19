@@ -7,9 +7,11 @@ import { CheckCircle } from "lucide-react";
 
 interface Props {
   answers: Record<string, string>;
+  onRestart: () => void;
 }
 
-const WaitlistPage = ({ answers }: Props) => {
+const WaitlistPage = ({ answers, onRestart }: Props) => {
+
   const [form, setForm] = useState({
     name: "",
     email: "",
@@ -49,7 +51,15 @@ const WaitlistPage = ({ answers }: Props) => {
             <p className="text-muted-foreground">
               We'll reach out soon. The journey begins.
             </p>
+            <Button
+              onClick={onRestart}
+              variant="outline"
+              className="mt-6 h-11 px-8 rounded-full border-border/50 text-muted-foreground hover:text-foreground hover:border-primary/50"
+            >
+              Back to start
+            </Button>
           </motion.div>
+
         ) : (
           <>
             <motion.div

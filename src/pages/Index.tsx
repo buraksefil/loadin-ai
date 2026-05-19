@@ -29,8 +29,9 @@ const Index = () => {
           <StoryPage key="story" onComplete={() => setPage("waitlist")} />
         )}
         {page === "waitlist" && (
-          <WaitlistPage key="waitlist" answers={answers} />
+          <WaitlistPage key="waitlist" answers={answers} onRestart={() => { setAnswers({}); setPage("intro"); }} />
         )}
+
       </AnimatePresence>
     </div>
   );
