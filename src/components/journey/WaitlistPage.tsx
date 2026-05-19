@@ -7,9 +7,11 @@ import { CheckCircle } from "lucide-react";
 
 interface Props {
   answers: Record<string, string>;
+  onRestart: () => void;
 }
 
-const WaitlistPage = ({ answers }: Props) => {
+const WaitlistPage = ({ answers, onRestart }: Props) => {
+
   const [form, setForm] = useState({
     name: "",
     email: "",
