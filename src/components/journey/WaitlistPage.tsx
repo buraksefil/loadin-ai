@@ -101,8 +101,10 @@ const WaitlistPage = ({ answers, onRestart }: Props) => {
               <h2 className="text-3xl md:text-4xl font-bold tracking-tight mb-3 text-gradient">
                 We're building something big.
               </h2>
-              <p className="text-muted-foreground text-lg">
-                If you want to be part of it, stay close.
+              <p className="text-muted-foreground text-lg text-center">
+                If you want to be part of the community,<br />
+                it's free — forever.<br />
+                Stay close.
               </p>
             </motion.div>
 
