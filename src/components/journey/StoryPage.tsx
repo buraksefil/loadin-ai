@@ -7,16 +7,16 @@ interface Props {
 }
 
 const lines1 = [
-  { text: "So... what is Loadin.ai?", style: "text-3xl md:text-5xl font-bold text-gradient", delay: 0 },
+  { text: "So... what is Loadin.ai | Community?", style: "text-3xl md:text-5xl font-bold text-gradient", delay: 0 },
   { text: "It's not just another app.", style: "text-xl md:text-2xl text-muted-foreground", delay: 2 },
   { text: "It's not just another platform.", style: "text-xl md:text-2xl text-muted-foreground", delay: 3.5 },
   { text: "It's a system.", style: "text-xl md:text-2xl text-foreground font-medium", delay: 5 },
 ];
 
 const lines2 = [
-  { text: "AI improves your power and discipline.", style: "text-2xl md:text-3xl text-gradient font-bold", delay: 0 },
-  { text: "Goals meet execution, when you meet the right people.", style: "text-2xl md:text-3xl text-gradient font-bold", delay: 2 },
-  { text: "And you... finally follow through.", style: "text-xl md:text-2xl text-foreground font-medium", delay: 4 },
+  { text: "Focusing Goals,", style: "text-2xl md:text-3xl text-gradient font-bold", delay: 0 },
+  { text: "with the right people", style: "text-2xl md:text-3xl text-gradient font-bold", delay: 2 },
+  { text: "Together.", style: "text-xl md:text-2xl text-foreground font-medium", delay: 4 },
 ];
 
 const StoryPage = ({ onComplete }: Props) => {
