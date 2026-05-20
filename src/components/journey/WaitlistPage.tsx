@@ -56,7 +56,7 @@ const WaitlistPage = ({ answers, onRestart }: Props) => {
 
   return (
     <motion.div
-      className="h-screen w-screen flex items-center justify-center px-6 overflow-y-auto"
+      className="min-h-screen w-screen flex items-start justify-center px-6 overflow-y-auto"
       initial={{ opacity: 0 }}
       animate={{ opacity: 1 }}
       exit={{ opacity: 0 }}
