@@ -15,8 +15,8 @@ const lines1 = [
 
 const lines2 = [
   { text: "Focusing Goals,", style: "text-2xl md:text-3xl text-gradient font-bold", delay: 0 },
-  { text: "with the right people", style: "text-2xl md:text-3xl text-gradient font-bold", delay: 2 },
-  { text: "Together.", style: "text-xl md:text-2xl text-foreground font-medium", delay: 4 },
+  { text: "with the right people,", style: "text-2xl md:text-3xl text-gradient font-bold", delay: 2 },
+  { text: "Together.", style: "text-2xl md:text-2xl text-foreground font-medium", delay: 4 },
 ];
 
 const StoryPage = ({ onComplete }: Props) => {
